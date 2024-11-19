@@ -5,6 +5,10 @@ from . import views_restfull
 # from . import views_soap
 from . import views_load
 from rest_framework_simplejwt import views as jwt_views
+
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+)
 urlpatterns = [
     # URLs para TipoUsuario
     path('backend/tipousuario/<int:id>', views_backend.TipoUsuarioDetail.as_view()),  # Detalles de un tipo de usuario específico
@@ -16,6 +20,10 @@ urlpatterns = [
 
     #login
     path('backend/login/', views_backend.LoginView.as_view(), name='token_obtain_pair'),
+
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    
 
     # URLs para Clase
     path('backend/clase/<int:id>', views_backend.ClaseDetail.as_view()),  # Detalles de una clase específica
