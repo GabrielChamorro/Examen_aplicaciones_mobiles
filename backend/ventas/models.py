@@ -19,16 +19,17 @@ class Usuario(models.Model):
 class Clase(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
-    horario = models.TimeField()
+    horarioInicio = models.TimeField()
+    horarioFinal = models.TimeField()
+    dia = models.CharField(max_length=100)
 
     class Meta:
         db_table = 'clase'
-
+    
 class Asistencia(models.Model):
     id = models.AutoField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idUsuario')
+    alumno = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idUsuario')
     idClase = models.ForeignKey(Clase, on_delete=models.CASCADE, db_column='idClase')
-    fecha = models.DateField()
     presente = models.BooleanField(default=False)
 
     class Meta:

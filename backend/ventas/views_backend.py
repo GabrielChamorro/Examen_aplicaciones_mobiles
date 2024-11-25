@@ -128,7 +128,8 @@ class ClaseList(APIView):
 
     def post(self, request, format=None):
         data = JSONParser().parse(request)
-        if not Negocio.claseCrear(data['id'], data['nombre'], data['horario']):
+        # Removido el uso de `data['id']` ya que es autoincrement
+        if not Negocio.claseCrear(None, data['nombre'], data['horario']):
             return JSONResponseErr(None, msg="Error al crear la clase", status=status.HTTP_400_BAD_REQUEST)
         return JSONResponseOk(None, msg="Registro Creado", status=status.HTTP_201_CREATED)
 
@@ -158,7 +159,8 @@ class AsistenciaList(APIView):
 
     def post(self, request, format=None):
         data = JSONParser().parse(request)
-        if not Negocio.asistenciaCrear(data['id'], data['usuario'], data['idClase'], data['fecha'], data['presente']):
+        # Removido el uso de `data['id']` ya que es autoincrement
+        if not Negocio.asistenciaCrear(None, data['usuario'], data['idClase'], data['fecha'], data['presente']):
             return JSONResponseErr(None, msg="Error al crear la asistencia", status=status.HTTP_400_BAD_REQUEST)
         return JSONResponseOk(None, msg="Registro Creado", status=status.HTTP_201_CREATED)
 
@@ -205,5 +207,8 @@ class LoginView(TokenObtainPairView):
         # Si las credenciales son correctas, generar los tokens
         refresh = RefreshToken.for_user(usuario)  # Generamos el token para el usuario
         access_token = str(refresh.access_token)
+        nombre = str(usuario.nombre)
+        tipoUsuario = str(usuario.idTipoUsuario.nombre)
 
-        return Response({'access_token': access_token, 'refresh_token': str(refresh)}, status=status.HTTP_200_OK)
+        return Response({'access_token': access_token, 'refresh_token': str(refresh),
+                         'nombre': nombre,'tipoUsuario': tipoUsuario }, status=status.HTTP_200_OK)

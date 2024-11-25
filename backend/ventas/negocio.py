@@ -72,16 +72,19 @@ class Negocio:
         except Clase.DoesNotExist:
             return None
 
-    def claseCrear(id, nombre, horario):
+    def claseCrear(id, nombre, horarioInicio, horarioFinal, dia):
         clase = Negocio.get_Clase(int(id))
         if clase is None:
             try:
-                clase = Clase(nombre=nombre, horario=horario)
+                clase = Clase(nombre=nombre, horarioInicio=horarioInicio,  
+                              horarioFinal=horarioFinal, dia=dia)
             except ValueError:
                 raise ValueError("Error")
         else:
             clase.nombre = nombre
-            clase.horario = horario
+            clase.horarioInicio = horarioInicio
+            clase.horarioFinal = horarioFinal
+            clase.dia = dia
         clase.save()
         return True
 
@@ -102,17 +105,16 @@ class Negocio:
         except Asistencia.DoesNotExist:
             return None
 
-    def asistenciaCrear(id, usuario_id, idClase_id, fecha, presente):
+    def asistenciaCrear(alumno, idClase, presente):
         asistencia = Negocio.get_Asistencia(int(id))
         if asistencia is None:
             try:
-                asistencia = Asistencia(usuario_id=usuario_id, idClase_id=idClase_id, fecha=fecha, presente=presente)
+                asistencia = Asistencia(alumno=alumno, idClase=idClase, presente=presente)
             except ValueError:
                 raise ValueError("Error")
         else:
-            asistencia.usuario_id = usuario_id
-            asistencia.idClase_id = idClase_id
-            asistencia.fecha = fecha
+            asistencia.alumno = alumno
+            asistencia.idClase = idClase
             asistencia.presente = presente
         asistencia.save()
         return True
