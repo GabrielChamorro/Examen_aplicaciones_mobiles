@@ -47,7 +47,7 @@ export class LoginService {
       if (this.tipoUsuario == 'alumno'){
         this.router.navigate(['/','pagina-camara']);
       }else{
-        this.router.navigate(['/','pagina-qr']);
+        this.router.navigate(['/','pagina-asistencia']);
       }
       
     });

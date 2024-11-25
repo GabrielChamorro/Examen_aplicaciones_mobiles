@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-pagina-asistencia',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaAsistenciaPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
+
+  public redirigirQr(){
+    this.router.navigate(['/','pagina-qr'])
+  }
 
   ngOnInit() {
   }
