@@ -27,6 +27,22 @@ const routes: Routes = [
     path: 'pagina-camara',
     loadChildren: () => import('./pagina-camara/pagina-camara.module').then( m => m.PaginaCamaraPageModule)
   },
+  {
+    path: 'pagina-ver-cursos',
+    loadChildren: () => import('./pagina-ver-cursos/pagina-ver-cursos.module').then( m => m.PaginaVerCursosPageModule)
+  },
+  {
+    path: 'pagina-bitacora-seccion',
+    loadChildren: () => import('./pagina-bitacora-seccion/pagina-bitacora-seccion.module').then( m => m.PaginaBitacoraSeccionPageModule)
+  },
+  {
+    path: 'pagina-enviar-anuncio',
+    loadChildren: () => import('./pagina-enviar-anuncio/pagina-enviar-anuncio.module').then( m => m.PaginaEnviarAnuncioPageModule)
+  },
+  {
+    path: 'pagina-justicar-asistencia',
+    loadChildren: () => import('./pagina-justicar-asistencia/pagina-justicar-asistencia.module').then( m => m.PaginaJusticarAsistenciaPageModule)
+  },
 ];
 
 @NgModule({
