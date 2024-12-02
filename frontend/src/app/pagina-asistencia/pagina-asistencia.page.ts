@@ -17,6 +17,19 @@ export class PaginaAsistenciaPage implements OnInit {
     this.router.navigate(['/','pagina-qr'])
   }
 
+  public redirigirAnuncio(){
+    this.router.navigate(['/','pagina-enviar-anuncio'])
+  }
+
+  public redirigirJustificar(){
+    this.router.navigate(['/','pagina-justicar-asistencia'])
+  }
+
+  public redirigirBitacora(){
+    this.router.navigate(['/','pagina-bitacora-seccion'])
+  }
+
+
   ngOnInit() {
   }
 
