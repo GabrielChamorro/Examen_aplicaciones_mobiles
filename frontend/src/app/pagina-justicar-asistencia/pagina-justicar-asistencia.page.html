@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pagina-justicar-asistencia</ion-title>
+    <ion-button (click)="redirigirAsistencia()">Volver</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pagina-justicar-asistencia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+  <ion-picker>
+    <ion-text style="text-align: center;">Alumno</ion-text>
+    <ion-picker-column value="javascript">
+      <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+      <ion-picker-column-option value="juanito">juanito</ion-picker-column-option>
+      <ion-picker-column-option value="pedrito">pedrito</ion-picker-column-option>
+      <ion-picker-column-option value="carlos">carlos</ion-picker-column-option>
+      <ion-picker-column-option value="felipe">felipe</ion-picker-column-option>
+    </ion-picker-column>
+  </ion-picker>
+
+  <ion-textarea fill="outline" style="height:500px">justificar asistencia</ion-textarea>
+
+  <br>
+  <ion-button>Ingresar</ion-button>
+  <br>
+</ion-content>

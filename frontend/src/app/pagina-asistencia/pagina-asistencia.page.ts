@@ -30,6 +30,14 @@ export class PaginaAsistenciaPage implements OnInit {
   }
 
 
+
+
+
+
+  public redirigirVerCursos(){
+    this.router.navigate(['/','pagina-ver-cursos'])
+  }
+
   ngOnInit() {
   }
 

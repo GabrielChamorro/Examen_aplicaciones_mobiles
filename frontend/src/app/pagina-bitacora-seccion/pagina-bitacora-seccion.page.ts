@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pagina-qr',
-  templateUrl: './pagina-qr.page.html',
-  styleUrls: ['./pagina-qr.page.scss'],
+  selector: 'app-pagina-bitacora-seccion',
+  templateUrl: './pagina-bitacora-seccion.page.html',
+  styleUrls: ['./pagina-bitacora-seccion.page.scss'],
 })
-export class PaginaQrPage implements OnInit {
+export class PaginaBitacoraSeccionPage implements OnInit {
 
   constructor(
     private router: Router

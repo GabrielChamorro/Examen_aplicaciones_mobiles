@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pagina-qr',
-  templateUrl: './pagina-qr.page.html',
-  styleUrls: ['./pagina-qr.page.scss'],
+  selector: 'app-pagina-enviar-anuncio',
+  templateUrl: './pagina-enviar-anuncio.page.html',
+  styleUrls: ['./pagina-enviar-anuncio.page.scss'],
 })
-export class PaginaQrPage implements OnInit {
+export class PaginaEnviarAnuncioPage implements OnInit {
 
   constructor(
     private router: Router
