@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./pagina-qr/pagina-qr.module').then( m => m.PaginaQrPageModule)
   },
   {
-    path: 'pagina-asistencia',
+    path: 'pagina-asistencia/:id_clase',
     loadChildren: () => import('./pagina-asistencia/pagina-asistencia.module').then( m => m.PaginaAsistenciaPageModule)
   },
   {
@@ -43,6 +43,7 @@ const routes: Routes = [
     path: 'pagina-justicar-asistencia',
     loadChildren: () => import('./pagina-justicar-asistencia/pagina-justicar-asistencia.module').then( m => m.PaginaJusticarAsistenciaPageModule)
   },
+  
 ];
 
 @NgModule({

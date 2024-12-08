@@ -7,16 +7,17 @@
 <ion-content [fullscreen]="true">
 
   <div class="grid-container">
-    <ion-card class="custom-card">
+    
+    <ion-card class="custom-card" *ngFor="let dato of clases">
       <img class="imagen-producto" alt="Imagen del producto" src="./../../assets/images/duoc_uc_logo.png" />
       <ion-card-header>
-        <ion-card-title>Curso 1</ion-card-title>
-        <ion-card-subtitle>Seccion 1</ion-card-subtitle>
+        <ion-card-title>{{dato.nombreCurso}}</ion-card-title>
+        <ion-card-subtitle>{{dato.seccion}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        curos de algo que deberia poner una descripcion larga de algo que deberia hablar extensibamente aqui por razones desconocidas para mi.
+        {{dato.Descripcion}}
       </ion-card-content>
-      <ion-button (click)="irCurso()" class="boton-compra">Ingresar</ion-button>
+      <ion-button (click)="redirigirAsistencia(dato.id)" class="boton-compra">Ingresar</ion-button>
     </ion-card>
   </div>
 

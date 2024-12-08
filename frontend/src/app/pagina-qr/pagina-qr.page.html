@@ -1,21 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>pagina-qr</ion-title>
-    <ion-button (click)="redirigirAsistencia()">Volver</ion-button>
+    
+    <ion-button slot="start" (click)="redirigirAsistencia()">Volver</ion-button>
+    
+
+    <ion-grid>
+      <ion-row>
+        <ion-col offset="3" size="4">
+          QR
+        </ion-col>
+        <ion-col offset="1" size="3">
+          <img src="./../../assets/images/Logo_DuocUC.svg.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pagina-qr</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div class="qrcode">
-    <qr-code value="https://media.wired.com/photos/5a8f86c4fc41d94f4aaf3c46/1:1/w_473,h_473,c_limit/realmario.jpg" 
-         size="500" 
-         errorCorrectionLevel="M" /> 
-  </div>
+
+
+
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col class="ion-col-custom">
+        <div class="qrcode">
+          <qr-code value="https://media.wired.com/photos/5a8f86c4fc41d94f4aaf3c46/1:1/w_473,h_473,c_limit/realmario.jpg" 
+               size="auto" 
+               errorCorrectionLevel="M" /> 
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   
 </ion-content>

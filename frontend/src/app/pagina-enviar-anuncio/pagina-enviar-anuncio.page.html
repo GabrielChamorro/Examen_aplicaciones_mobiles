@@ -12,9 +12,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-textarea fill="outline" style="height:500px">Anuncio de curso</ion-textarea>
+  <ion-input placeholder="introduce tu titulo aqui" fill="outline" [(ngModel)]="titulo">titulo</ion-input>
+  <ion-textarea [(ngModel)]="contenido" fill="outline" style="height:500px">Anuncio de curso</ion-textarea>
 
   <br>
-  <ion-button>Ingresar</ion-button>
+  <ion-button (click)="agregarAnuncio()" >Ingresar</ion-button>
   <br>
 </ion-content>
