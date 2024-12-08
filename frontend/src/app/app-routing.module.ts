@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./inicio-sesion/inicio-sesion.module').then( m => m.InicioSesionPageModule)
   },
   {
-    path: 'pagina-qr',
+    path: 'pagina-qr/:id_clase',
     loadChildren: () => import('./pagina-qr/pagina-qr.module').then( m => m.PaginaQrPageModule)
   },
   {
@@ -32,15 +32,15 @@ const routes: Routes = [
     loadChildren: () => import('./pagina-ver-cursos/pagina-ver-cursos.module').then( m => m.PaginaVerCursosPageModule)
   },
   {
-    path: 'pagina-bitacora-seccion',
+    path: 'pagina-bitacora-seccion/:id_clase',
     loadChildren: () => import('./pagina-bitacora-seccion/pagina-bitacora-seccion.module').then( m => m.PaginaBitacoraSeccionPageModule)
   },
   {
-    path: 'pagina-enviar-anuncio',
+    path: 'pagina-enviar-anuncio/:id_clase',
     loadChildren: () => import('./pagina-enviar-anuncio/pagina-enviar-anuncio.module').then( m => m.PaginaEnviarAnuncioPageModule)
   },
   {
-    path: 'pagina-justicar-asistencia',
+    path: 'pagina-justicar-asistencia/:id_clase',
     loadChildren: () => import('./pagina-justicar-asistencia/pagina-justicar-asistencia.module').then( m => m.PaginaJusticarAsistenciaPageModule)
   },
   

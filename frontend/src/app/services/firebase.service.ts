@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Observable } from 'rxjs';
-import { collectionData, doc, Firestore, Query } from '@angular/fire/firestore';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -50,6 +49,9 @@ export class FirebaseService {
       }))
     );
   }
+
+
+  
   
 
 

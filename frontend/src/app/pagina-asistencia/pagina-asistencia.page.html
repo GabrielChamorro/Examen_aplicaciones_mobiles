@@ -29,19 +29,20 @@
   </ion-header>
 
   <ion-content [fullscreen]="true">
-    <ion-list>
-      <ion-item>
-        <ion-label>Juanito</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Pedrito</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Carlos</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Felipe</ion-label>
-      </ion-item>
+    <ion-list *ngFor="let dato of asistencias">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-col-custom" >{{dato.nombreAlumno}}</ion-col>
+
+          <ion-col class="ion-col-custom" *ngIf="dato.asiste == false">ausente</ion-col>
+          <ion-col class="ion-col-custom" *ngIf="dato.asiste == true">presente</ion-col>
+          
+
+          <ion-col class="ion-col-presente"  style="color:green;" (click)="asistenciaTrue(dato.clase, dato.idAlumno, dato.nombreAlumno, dato.id)" *ngIf="dato.asiste == false">poner presente</ion-col>
+          <ion-col class="ion-col-ausente"  style="color:red" (click)="asistenciaFalse(dato.clase, dato.idAlumno, dato.nombreAlumno, dato.id)" *ngIf="dato.asiste == true">poner ausente</ion-col>
+          
+        </ion-row>
+      </ion-grid>
     </ion-list>
   </ion-content>
 </div>
