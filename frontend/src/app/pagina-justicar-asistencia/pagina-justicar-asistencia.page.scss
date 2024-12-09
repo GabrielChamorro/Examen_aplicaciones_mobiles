@@ -1,0 +1,24 @@
+ion-item {
+    --inner-padding: 10px;
+    margin-bottom: 16px; /* Espacio entre los elementos */
+  }
+  
+  ion-select, ion-textarea {
+    width: 100%;
+  }
+  
+  ion-label {
+    font-weight: bold;
+  }
+  
+  ion-button {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  @media (min-width: 576px) {
+    ion-textarea {
+      height: 300px; /* Aumentar la altura del textarea en pantallas más grandes */
+    }
+  }
+  

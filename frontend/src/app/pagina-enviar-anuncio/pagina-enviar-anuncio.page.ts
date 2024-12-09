@@ -1,31 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { ViewWillEnter, ViewWillLeave } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-enviar-anuncio',
   templateUrl: './pagina-enviar-anuncio.page.html',
   styleUrls: ['./pagina-enviar-anuncio.page.scss'],
 })
-export class PaginaEnviarAnuncioPage implements OnInit {
+export class PaginaEnviarAnuncioPage implements OnInit, ViewWillEnter, ViewWillLeave {
 
-  constructor(
-    private router: Router,
-    private firebaseService: FirebaseService
-  ) { }
+
   contenido: string = ' ';
   fecha_publicacion: string = ' ';
   idClase: string = 'faltaImplementarRelacionTablasYPermanenciaLogin';
   publicado_por: string = 'faltaImplementarPermanenciaDeLogin';
   titulo: string = ' ';
 
+  id_clase: string = ' ';
 
-  ngOnInit() {
-    const date = new Date(); this.fecha_publicacion = date.toISOString();
+  anuncios: any[] = [];
+  private anunciosSubscription!: Subscription;
+
+  
+  constructor(
+    private router: Router,
+    private firebaseService: FirebaseService,
+    private Arouter: ActivatedRoute
+  ) { 
+
+    Arouter.paramMap.subscribe(parametros => {
+      this.id_clase = (parametros.get("id_clase") as string);
+    });
+
   }
+  
 
   public redirigirAsistencia(){
-    this.router.navigate(['/','pagina-asistencia'])
+    this.router.navigate(['/','pagina-asistencia',this.id_clase])
   }
 
 
@@ -61,6 +75,41 @@ export class PaginaEnviarAnuncioPage implements OnInit {
     }
   }
 
-  
+
+
+
+  eliminarAnuncio(id: string) {
+    alert("alo")
+    
+    this.firebaseService.deleteItem('Anuncio', id)
+    .then(() => {
+      console.log('Anuncio eliminado con exito');
+    })
+    .catch((error) => {
+      console.error('Error al eliminar el Anuncio:', error);
+    });
+    
+  }
+
+  ionViewWillEnter(): void {
+    this.anunciosSubscription = this.firebaseService.getData('Anuncio').subscribe(losDatos => {
+      if(losDatos){
+        this.anuncios = losDatos;
+        console.log(losDatos)
+      }
+    });
+    
+  }
+
+
+  ionViewWillLeave(): void {
+    this.anunciosSubscription.unsubscribe();
+  }
+
+
+  ngOnInit() {
+    const date = new Date(); this.fecha_publicacion = date.toISOString();
+    
+  }
 
 }

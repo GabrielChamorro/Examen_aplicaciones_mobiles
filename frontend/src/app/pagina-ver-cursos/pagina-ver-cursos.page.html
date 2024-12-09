@@ -5,20 +5,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <div class="grid-container">
-    
-    <ion-card class="custom-card" *ngFor="let dato of clases">
-      <img class="imagen-producto" alt="Imagen del producto" src="./../../assets/images/duoc_uc_logo.png" />
-      <ion-card-header>
-        <ion-card-title>{{dato.nombreCurso}}</ion-card-title>
-        <ion-card-subtitle>{{dato.seccion}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        {{dato.Descripcion}}
-      </ion-card-content>
-      <ion-button (click)="redirigirAsistencia(dato.id)" class="boton-compra">Ingresar</ion-button>
-    </ion-card>
-  </div>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let dato of clases">
+        <ion-card class="custom-card">
+          <img class="imagen-producto" alt="Imagen del producto" src="./../../assets/images/duoc_uc_logo.png" />
+          <ion-card-header>
+            <ion-card-title>{{dato.nombreCurso}}</ion-card-title>
+            <ion-card-subtitle>{{dato.seccion}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{dato.Descripcion}}
+          </ion-card-content>
+          <ion-button (click)="redirigirAsistencia(dato.id)" class="boton-compra">Ingresar</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

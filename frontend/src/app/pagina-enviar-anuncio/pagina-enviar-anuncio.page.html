@@ -12,10 +12,52 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-input placeholder="introduce tu titulo aqui" fill="outline" [(ngModel)]="titulo">titulo</ion-input>
-  <ion-textarea [(ngModel)]="contenido" fill="outline" style="height:500px">Anuncio de curso</ion-textarea>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Titulo</ion-label>
+          <ion-input placeholder="Introduce tu titulo aqui" fill="outline" [(ngModel)]="titulo"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Contenido</ion-label>
+          <ion-textarea [(ngModel)]="contenido" fill="outline" style="height: 200px;"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-button expand="block" (click)="agregarAnuncio()">Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
 
-  <br>
-  <ion-button (click)="agregarAnuncio()" >Ingresar</ion-button>
-  <br>
+
+    <ion-list *ngFor="let dato of anuncios">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Titulo</ion-label>
+            <ion-input [(ngModel)]="dato.titulo" [disabled]="true" value="obama" placeholder="Introduce tu titulo aqui" fill="outline" ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Contenido</ion-label>
+            <ion-textarea [(ngModel)]="dato.contenido" [disabled]="true" fill="outline" placeholder="introduce cuerpo del mensaje aqui" style="height: 200px;"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <ion-button expand="block" (click)="eliminarAnuncio(dato.id)">Borrar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-grid>
 </ion-content>

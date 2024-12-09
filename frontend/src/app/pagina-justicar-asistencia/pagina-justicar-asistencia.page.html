@@ -12,21 +12,40 @@
     </ion-toolbar>
   </ion-header>
 
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-item>
+          <ion-label>Alumno</ion-label>
+          <ion-select [(ngModel)]="nombreAlumno" placeholder="Seleccionar Alumno">
+            <ion-list *ngFor="let dato of asistencias">
+              <ion-select-option>{{dato.nombreAlumno}}</ion-select-option>
+            </ion-list>
+            
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Justificación</ion-label>
+          <ion-textarea [(ngModel)]="contenido" fill="outline" style="height: 200px;"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="agregarAnuncio()" expand="block">Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
   
-  <ion-picker>
-    <ion-text style="text-align: center;">Alumno</ion-text>
-    <ion-picker-column value="javascript">
-      <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
-      <ion-picker-column-option value="juanito">juanito</ion-picker-column-option>
-      <ion-picker-column-option value="pedrito">pedrito</ion-picker-column-option>
-      <ion-picker-column-option value="carlos">carlos</ion-picker-column-option>
-      <ion-picker-column-option value="felipe">felipe</ion-picker-column-option>
-    </ion-picker-column>
-  </ion-picker>
 
-  <ion-textarea fill="outline" style="height:500px">justificar asistencia</ion-textarea>
+  
 
-  <br>
-  <ion-button>Ingresar</ion-button>
-  <br>
+  
 </ion-content>
